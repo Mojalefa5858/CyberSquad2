@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Rescue Mission</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --cyber-blue: #00f3ff;
+            --cyber-pink: #ff00ff;
+            --matrix-green: #0f0;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            min-height: 100vh;
+            background: radial-gradient(circle at center, #0a0a2e 0%, #000 100%);
+            color: var(--cyber-blue);
+            margin: 0;
+            padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .cyber-border {
+            position: fixed;
+            pointer-events: none;
+            border: 2px solid var(--cyber-blue);
+            inset: 1rem;
+            box-shadow: 0 0 20px var(--cyber-blue);
+            animation: border-pulse 2s infinite;
+        }
+
+        .container {
+            position: relative;
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid var(--cyber-blue);
+            padding: 2rem;
+            max-width: 800px;
+            margin: 2rem auto;
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.2);
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px var(--cyber-blue);
+        }
+
+        .story {
+            border-left: 3px solid var(--cyber-pink);
+            padding-left: 1rem;
+            margin: 2rem 0;
+            line-height: 1.6;
+        }
+
+        .terminal {
+            background: #001100;
+            border: 1px solid var(--matrix-green);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+        }
+
+        .terminal::before {
+            content: ">_ TERMINAL";
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background: #001100;
+            padding: 0 5px;
+            color: var(--matrix-green);
+            font-size: 0.8rem;
+        }
+
+        .input-group {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            background: transparent;
+            border: 1px solid var(--cyber-blue);
+            color: var(--cyber-blue);
+            padding: 1rem;
+            font-size: 1.2rem;
+            width: 300px;
+            margin: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 0 20px var(--cyber-blue);
+        }
+
+        button {
+            background: linear-gradient(45deg, #ff00ff, #00f3ff);
+            border: none;
+            padding: 1rem 2rem;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
+        }
+
+        #flag {
+            display: none;
+            color: var(--matrix-green);
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: glitch 1s infinite;
+        }
+
+        @keyframes border-pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px var(--cyber-pink), -2px -2px var(--cyber-blue); }
+            25% { transform: translate(2px); }
+            50% { transform: translate(-2px); }
+            75% { transform: translate(2px) skew(-5deg); }
+            100% { transform: none; }
+        }
+
+        .download-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .download-links a {
+            color: var(--matrix-green);
+            text-decoration: none;
+            border: 1px solid var(--matrix-green);
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .download-links a:hover {
+            background: rgba(0, 255, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .hint {
+            color: var(--cyber-pink);
+            text-align: center;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-border"></div>
+    
+    <div class="container">
+        <h1>CYBER RESCUE MISSION</h1>
+        <center><div class="author-credit">👨💻 Challenge by Mojalefa Nyane</div></center>
+
+        <div class="story">
+            <p>🚨 Emergency Alert! Your neighbor (a cybersecurity newbie) messed up:</p>
+            <div class="terminal">
+                $ sudo forget-password --force<br>
+                ⚠️ WARNING: All password backups corrupted!<br>
+                🔑 WiFi Password: ********<br>
+                ❌ Error: Memory recall failure<br>
+                🆘 HELP: Find password in captured handshake!
+            </div>
+            <p>They captured a WiFi handshake during their last connection but don't know how to proceed. Use these files to recover the lost password!</p>
+        </div>
+
+        <div class="download-links">
+            <a href="neighbors_handshake.cap" download>
+                <i class="fas fa-file-code"></i> Handshake Capture
+            </a>
+            <a href="modified_rockyou.txt" download>
+                <i class="fas fa-file-alt"></i> Password Dictionary
+            </a>
+        </div>
+
+        <div class="hint">
+            💡 Hint: Use aircrack-ng<br>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="password" placeholder="Enter recovered password">
+            <button onclick="checkPassword()">
+                <i class="fas fa-unlock"></i> Validate Password
+            </button>
+        </div>
+
+        <p id="flag"></p>
+    </div>
+
+        <script>
+        (function(){
+            var _0x3d4a=["\x32\x66\x65\x38\x64\x31\x39\x31\x35\x62\x37\x66\x66\x31\x62\x32",
+                         "\x61\x63\x31\x63\x64\x30\x38\x62\x35\x37\x38\x34\x37\x39\x65\x66",
+                         "\x31\x61\x30\x34\x63\x30\x61\x65\x35\x35\x31\x62\x37\x65\x31\x66",
+                         "\x65\x63\x39\x35\x61\x32\x62\x35\x33\x64\x65\x37\x39\x61\x39\x63"];
+            var correctHash=_0x3d4a[0]+_0x3d4a[1]+_0x3d4a[2]+_0x3d4a[3];
+            var shiftedCodes = [68,122,99,102,115,84,114,118,98,101,68,85,71,124,100,122,
+                               99,102,115,116,114,118,98,101,96,109,106,110,108,112,108,
+                               120,106,111,104,96,126];
+            
+            async function sha256(_0x2cf8x2){
+                const _0x2cf8x3=new TextEncoder();
+                const _0x2cf8x4=_0x2cf8x3.encode(_0x2cf8x2);
+                const _0x2cf8x5=await crypto.subtle.digest('SHA-256',_0x2cf8x4);
+                return Array.from(new Uint8Array(_0x2cf8x5)).map(_0x2cf8x6=>_0x2cf8x6.toString(16).padStart(2,'0')).join('');
+            }
+
+            async function checkPassword(){
+                let _0x2cf8x8=document.getElementById("password").value;
+                let _0x2cf8x9=await sha256(_0x2cf8x8);
+                if(_0x2cf8x9===correctHash){
+                    document.getElementById("flag").innerText="Flag: "+String.fromCharCode(...shiftedCodes.map(_0x2cf8x6=>_0x2cf8x6-1));
+                    document.getElementById("flag").style.display="block";
+                }else{
+                    alert("Incorrect password! Try again.");
+                }
+            }
+            window.checkPassword=checkPassword;
+        })();
+    </script>
+</body>
+</html>
